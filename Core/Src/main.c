@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdio.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,8 +96,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int Count =0;
+  char buff[32];
   while (1)
   {
+//	  sprintf(buff, "%5.2d ℃ \n\r", Count);
+	  sprintf(buff, "%5.2d \n\r", Count);
+	  HAL_UART_Transmit(&huart2, (uint8_t*) buff, strlen(buff), HAL_MAX_DELAY);
+	  Count ++;
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
